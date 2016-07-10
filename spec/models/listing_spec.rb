@@ -129,9 +129,11 @@ describe Listing do
 
     context 'when listing created' do
       let(:user) { User.create(name: 'Tina Fey', host: false) }
+      #binding.pry
       let(:other_user) { User.create(name: 'Not Tina Fey') }
 
       it 'changes user host status' do
+        #binding.pry
         expect(user.host?).to eq(false)
 
         listing = Listing.create(address: '123 Main Street',
@@ -141,6 +143,7 @@ describe Listing do
           price: "150.00",
           neighborhood: santa_monica,
           host: user)
+      #  binding.pry
         expect(user.reload.host?).to eq(true)
       end
     end
@@ -239,6 +242,7 @@ describe Listing do
 
     it 'knows its average ratings from its reviews' do
       listing.reload
+#      binding.pry
       expect(listing.average_review_rating).to eq(2.5)
     end
   end  

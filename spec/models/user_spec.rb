@@ -25,10 +25,12 @@ describe User do
     end
 
     it 'as a guest, knows about the hosts its had' do 
+#     binding.pry
       expect(@logan.hosts).to include(@amanda)
     end
 
     it 'as a host, knows about its reviews from guests' do
+#      binding.pry
       expect(@amanda.host_reviews).to include(@review1) 
     end
   end
